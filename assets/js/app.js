@@ -11,7 +11,7 @@ function startQuestions ()
 {
     title.innerHTML = subjects[0].title;
     questionDescription.innerHTML = subjects[0].statement;
-    hideIntro.style.display = 
+    hideIntro.style.display =
 }
 
 function none () 
