@@ -39,3 +39,7 @@
     cursor: pointer;
     color: white;
 }
+
+.options {
+    display: none;
+}
