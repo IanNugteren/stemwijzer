@@ -29,7 +29,7 @@
     line-height: 1.3em;
 }
 
-.start-button {
+#start-button {
     padding: 20px 30px 20px 30px;
     background: transparent;
     border-radius: 5px;
@@ -42,4 +42,8 @@
 
 .options {
     display: none;
+}
+
+.hide-onclick {
+    display: block;
 }
