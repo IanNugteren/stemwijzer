@@ -1,17 +1,24 @@
-let title = document.getElementById("title");
-let questionDescription = document.getElementById("question-description");
-let hideIntro = document.getElementById("hide-onclick");
+var eens = []
+var oneens = []
+var none = []
 
-document.getElementById("start-button").addEventListener("click", startQuestions);
-document.getElementById("eens").addEventListener("click", eens);
-document.getElementById("none").addEventListener("click", none);
-document.getElementById("oneens").addEventListener("click", onEens);
+const title = document.getElementById("title")
+const questionDescription = document.getElementById("question-description")
+const hideIntro = document.getElementById("hide-onclick")
+const showOptions = document.getElementById("options")
+var subjectCount = 0;
+
+document.getElementById("start-button").addEventListener("click", startQuestions)
+document.getElementById("eens").addEventListener("click", eens)
+document.getElementById("none").addEventListener("click", none)
+document.getElementById("oneens").addEventListener("click", onEens)
 
 function startQuestions () 
 {
-    title.innerHTML = subjects[0].title;
-    questionDescription.innerHTML = subjects[0].statement;
-    hideIntro.style.display =
+    showOptions.style.display = "block"
+    title.innerHTML = subjects[subjectCount].title
+    questionDescription.innerHTML = subjects[subjectCount].statement
+    hideIntro.style.display = "none"
 }
 
 function none () 
@@ -21,7 +28,7 @@ function none ()
 
 function eens () 
 {
-    console.log('eens');
+
 }
 
 function onEens () 

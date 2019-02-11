@@ -40,10 +40,10 @@
     color: white;
 }
 
-.options {
+#options {
     display: none;
 }
 
-.hide-onclick {
+#hide-onclick {
     display: block;
 }
