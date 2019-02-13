@@ -1,47 +1,50 @@
-var agreed = []
-var unAgreed = []
-var noChoice = []
-const title = document.getElementById("title")
-const questionDescription = document.getElementById("question-description")
-const hideIntro = document.getElementById("hide-onclick")
-const showOptions = document.getElementById("options")
-var subjectCount = 0;
+const title = document.getElementById("title");
+const questionDescription = document.getElementById("question-description");
+const hideIntro = document.getElementById("hide-onclick");
+const showOptions = document.getElementById("options");
+const answerButtons = document.getElementsByClassName('answer-buttons');
+let subjectCount = 0;
 
-document.getElementById("start-button").addEventListener("click", startQuestions)
+document.getElementById("start-button").addEventListener("click", loadQuestions);
 
-document.getElementById("eens").addEventListener("click", function () {
-    console.log('eens');
-    startQuestions();
-});
+for(let i = 0; i < answerButtons.length; i++) {
+    answerButtons[i].onclick = function () {
+        const answer = answerButtons[i].dataset.answer;
+        switch (answer) {
+            case 'pro':
+                subjects[subjectCount - 1].answer = 'pro';
+                break;
+            case 'ambivalent':
+                subjects[subjectCount - 1].answer = 'ambivalent';
+                break;
+            case 'contra':
+                subjects[subjectCount - 1].answer = 'contra';
+                break;
+            case 'skip':
+                delete subjects[subjectCount - 1].answer;
+                break;
+            default: 
+                console.log('je moeder is dik');
+                break; 
+        } 
+        loadQuestions();
+    };
+}
 
-document.getElementById("none").addEventListener("click", function () {
-    console.log('none');
-    startQuestions();
-});
-
-document.getElementById("oneens").addEventListener("click", function () {
-    console.log('oneens');
-    startQuestions();
-});
-
-document.getElementById("skip").addEventListener("click", function () {
-    console.log('skipped');
-    startQuestions();
-});
-
-function startQuestions () 
+function loadQuestions () 
 {
     if (subjectCount == subjects.length) {
         title.innerHTML = "Einde van de vragenlijst"
         hideIntro.style.display = "none"
         showOptions.style.display = "block"
         questionDescription.style.display = "none"
-    
     } else {
         showOptions.style.display = "block"
         title.innerHTML = subjectCount + 1 + ". " + subjects[subjectCount].title
         questionDescription.innerHTML = subjects[subjectCount].statement
         hideIntro.style.display = "none"
-        subjectCount++
+        subjectCount++;
     }
 }
+
+
