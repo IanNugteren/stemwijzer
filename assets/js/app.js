@@ -3,10 +3,10 @@ const questionDescription = document.getElementById("question-description");
 const hideIntro = document.getElementById("hide-onclick");
 const showOptions = document.getElementById("options");
 const answerButtons = document.getElementsByClassName('answer-buttons');
-const prevQuestionButton = document.getElementById('prev');
 let subjectCount = 0;
 
 document.getElementById("start-button").addEventListener("click", loadQuestions);
+document.getElementById("prev-button").addEventListener("click", getPrevQuestion);
 
 for(let i = 0; i < answerButtons.length; i++) {
     answerButtons[i].onclick = function () {
@@ -17,6 +17,7 @@ for(let i = 0; i < answerButtons.length; i++) {
         } else {
             subjects[subjectCount - 1].answer = answer;
         }
+
         loadQuestions();
     };
 }
@@ -39,7 +40,17 @@ function loadQuestions ()
 
 function getPrevQuestion () 
 {
-       
+
+}
+
+function extraWeightQuestion () 
+{
+
+}
+
+function getResults () 
+{
+
 }
 
 
