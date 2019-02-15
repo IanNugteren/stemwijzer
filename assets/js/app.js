@@ -3,6 +3,7 @@ const questionDescription = document.getElementById("question-description");
 const hideIntro = document.getElementById("hide-onclick");
 const showOptions = document.getElementById("options");
 const answerButtons = document.getElementsByClassName('answer-buttons');
+const prevQuestionButton = document.getElementById('prev');
 let subjectCount = 0;
 
 document.getElementById("start-button").addEventListener("click", loadQuestions);
@@ -10,23 +11,12 @@ document.getElementById("start-button").addEventListener("click", loadQuestions)
 for(let i = 0; i < answerButtons.length; i++) {
     answerButtons[i].onclick = function () {
         const answer = answerButtons[i].dataset.answer;
-        switch (answer) {
-            case 'pro':
-                subjects[subjectCount - 1].answer = 'pro';
-                break;
-            case 'ambivalent':
-                subjects[subjectCount - 1].answer = 'ambivalent';
-                break;
-            case 'contra':
-                subjects[subjectCount - 1].answer = 'contra';
-                break;
-            case 'skip':
-                delete subjects[subjectCount - 1].answer;
-                break;
-            default: 
-                console.log('je moeder is dik');
-                break; 
-        } 
+
+        if (answer == "skip") {
+            delete subjects[subjectCount - 1].answer;
+        } else {
+            subjects[subjectCount - 1].answer = answer;
+        }
         loadQuestions();
     };
 }
@@ -45,6 +35,11 @@ function loadQuestions ()
         hideIntro.style.display = "none"
         subjectCount++;
     }
+}
+
+function getPrevQuestion () 
+{
+       
 }
 
 

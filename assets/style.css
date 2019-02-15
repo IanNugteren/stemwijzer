@@ -63,9 +63,10 @@
     border: 0;
     outline: 0;
     cursor: pointer;
-    transition: transform .2s;
+    transition: transform .3s ease-out;
+    display: none;
 }
 
 #prev:hover {
-
+    transform: translate(0, -5px);
 }
